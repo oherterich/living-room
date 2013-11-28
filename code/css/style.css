@@ -1,0 +1,110 @@
+@font-face {
+  font-family: Dekar-Light;
+  src: url("font/DekarLight.otf"); }
+
+@font-face {
+  font-family: Dekar-Regular;
+  src: url("font/DekarRegular.otf"); }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: Dekar-Regular;
+  background: navy;
+  color: beige; }
+
+#date {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 10%;
+  text-align: center;
+  font-size: 2.1rem;
+  letter-spacing: 0.1rem; }
+
+#time {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3%;
+  font-family: Dekar-Light;
+  text-align: center;
+  font-size: 15.0rem; }
+
+#temp {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%; }
+  #temp h1 {
+    width: 35%;
+    font-size: 6.0rem;
+    text-align: center;
+    margin: 0;
+    margin-left: 15%;
+    padding-top: 30px; }
+  #temp #weather_image {
+    height: 100%;
+    float: right;
+    margin-right: 15%; }
+
+#hourly_forecast {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5%; }
+
+.hourly {
+  width: 240px;
+  height: 75px;
+  margin: 0 20px;
+  float: left; }
+  .hourly h3 {
+    font-family: Dekar-Light;
+    font-size: 2.2rem;
+    padding-top: 15px; }
+  .hourly img {
+    float: right;
+    max-width: 100%;
+    max-height: 100%; }
+
+#train_info {
+  clear: both;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding-top: 6%; }
+  #train_info h3 {
+    font-family: Dekar-Light;
+    text-align: center;
+    font-size: 1.6rem; }
+  #train_info h1 {
+    margin: 3%;
+    text-align: center;
+    font-size: 10.0rem; }
+
+#christmas {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 2.5%;
+  margin-left: 8%;
+  text-align: center;
+  float: left; }
+  #christmas h1 {
+    font-size: 7.0rem; }
+  #christmas h3 {
+    font-family: Dekar-Light;
+    font-size: 1.7rem; }
+
+#graduation {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 5%;
+  text-align: center;
+  margin-left: 53%; }
+  #graduation h1 {
+    font-size: 7.0rem; }
+  #graduation h3 {
+    font-family: Dekar-Light;
+    font-size: 1.7rem; }

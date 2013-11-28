@@ -536,18 +536,41 @@ function LastTrain(CurrentTime, Schedule) {
 }
 
 function minutesUntil(nextTrainTime, CurrentTime) {
-	var minutes = nextTrainTime.getTime() - CurrentTime.getTime();
-	minutes = (minutes / 1000) / 60;
-	return minutes
+	var totalSeconds = (nextTrainTime.getTime() - CurrentTime.getTime()) / 1000;
+	minutes = Math.floor((totalSeconds % 3600) / 60);
+	return minutes;
+}
+
+function secondsUntil(nextTrainTime, CurrentTime) {
+	var totalSeconds = (nextTrainTime.getTime() - CurrentTime.getTime()) / 1000;
+	seconds = Math.floor(totalSeconds % 60);
+	return seconds;
 }
 
 
-var next = NextTrain(walkingNow, SelectSchedule());
-var last = LastTrain(walkingNow, SelectSchedule());
-var minutesNext = minutesUntil(next, walkingNow);
-var totalminutes = minutesUntil(next, last);
-var pct = 100 - (minutesNext * 100) / totalminutes;
+ var next = NextTrain(walkingNow, SelectSchedule());
+ var last = LastTrain(walkingNow, SelectSchedule());
+//var totalminutes = minutesUntil(next, last);
+//var pct = 100 - (minutesNext * 100) / totalminutes;
 
+var checkTrainTime = function() {
+	now = new Date();
+	walkingNow = addMinutes(now, 8);
 
-console.log("the next train will depart in " + Math.round(minutesNext) + " minutes");
-console.log(consolepct[Math.round(pct / 5)] + " " + pct);
+	var minutesNext = minutesUntil(next, walkingNow);
+	var secondsNext = secondsUntil(next, walkingNow);
+
+	if (secondsNext < 10) {
+		secondsNext = "0" + secondsNext;
+	}
+
+	var minutesToTrain = document.getElementById('minutesToTrain');
+	minutesToTrain.innerHTML=minutesNext + ":" + secondsNext;
+}
+
+var trainDisplay = function() {
+	checkTrainTime();
+	
+	t=setTimeout(function(){trainDisplay()},500);
+}
+	trainDisplay();
