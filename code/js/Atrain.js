@@ -556,6 +556,8 @@ function secondsUntil(nextTrainTime, CurrentTime) {
 var checkTrainTime = function() {
 	now = new Date();
 	walkingNow = addMinutes(now, 8);
+	next = NextTrain(walkingNow, SelectSchedule());
+ 	last = LastTrain(walkingNow, SelectSchedule());
 
 	var minutesNext = minutesUntil(next, walkingNow);
 	var secondsNext = secondsUntil(next, walkingNow);

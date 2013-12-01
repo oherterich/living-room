@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
   		$('#weather_image').html("<img src='img/rain.png'>");
   	}
 
-  	else if (weather == 'Snow' || weather == 'Snow Grains' || weather == 'Low Drifting Snow' || weather == 'Blowing Snow' || weather == 'Snow Showers' || weather == 'Snow Blowing Snow Mist') {
+  	else if (weather == 'Snow' || weather == 'Snow Grains' || weather == 'Low Drifting Snow' || weather == 'Blowing Snow' || weather == 'Snow Showers' || weather == 'Snow Blowing Snow Mist' || weather == 'Chance of Snow') {
   		$('#weather_image').html("<img src='img/snow.png'>");
   	}
 
@@ -56,6 +56,8 @@ jQuery(document).ready(function($) {
 			var temp = parsed_json['hourly_forecast'][i]['temp']['english'];
 			var weather = parsed_json['hourly_forecast'][i]['condition'];
 
+			console.log(weather);
+
 			var hourly_forecast = document.getElementById('hourly_forecast');
 
 			var hourly = document.createElement('div');
@@ -81,7 +83,7 @@ jQuery(document).ready(function($) {
 		  		hourlyImage.src ="img/rain.png";
 		  	}
 
-		  	else if (weather == 'Snow' || weather == 'Snow Grains' || weather == 'Low Drifting Snow' || weather == 'Blowing Snow' || weather == 'Snow Showers' || weather == 'Snow Blowing Snow Mist') {
+		  	else if (weather == 'Snow' || weather == 'Snow Grains' || weather == 'Low Drifting Snow' || weather == 'Blowing Snow' || weather == 'Snow Showers' || weather == 'Snow Blowing Snow Mist' || weather == 'Chance of Snow') {
 		  		hourlyImage.src = "img/snow.png";
 		  	}
 
@@ -105,6 +107,24 @@ jQuery(document).ready(function($) {
 
 });
 
+//Simple function to map values (similar to Processing's map() function)
+function map_range(value, low1, high1, low2, high2) {
+    return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+}
+
+var mapBackground = function() {
+	var now = new Date();
+	var hour = now.getHours();
+	var minute = now.getMinutes();
+	var second = now.getSeconds();
+	var totalTime = (hour * 3600) + (minute * 60) + second;
+
+	var hue = map_range(totalTime, 0, 86399, 0, 360);
+
+	var body = document.querySelector('body');
+	body.style.backgroundColor = "hsl(" + hue + ",70%, 30%)"
+}
+
 var checkTime = function(i) {
 	if (i<10)
 	  {
@@ -123,6 +143,8 @@ var time = function() {
 	m=checkTime(m);
 	s=checkTime(s);
 	document.getElementById('time').innerHTML= h+":"+m;
+
+	prevMinute = today.getMinutes();
 }
 
 var date = function() {
@@ -165,6 +187,8 @@ var dateDistance = function(year, month, date, hours, minutes, seconds) {
 var display = function() {
 	time();
 	date();
+	mapBackground();
+
 	 var christmas = dateDistance(2013, 11, 25, 0, 0, 0);
 	 //document.getElementById('christmas').innerHTML = "There are " + christmas.days + " days, " + christmas.hours + " hours, " + christmas.minutes + " minutes, and " + christmas.seconds + " seconds until Christmas! That's " + christmas.total + " total seconds!";
 	 document.getElementById('christmas').innerHTML = "<h1>" + christmas.days + "</h1><h3>days until Christmas</h3>"

@@ -12,14 +12,14 @@
 
 body {
   font-family: Dekar-Regular;
-  background: navy;
+  background: #25344C;
   color: beige; }
 
 #date {
   display: block;
   width: 80%;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 5%;
   text-align: center;
   font-size: 2.1rem;
   letter-spacing: 0.1rem; }
@@ -37,14 +37,14 @@ body {
   display: block;
   width: 80%;
   margin: 0 auto;
-  margin-top: 5%; }
+  margin-top: 0%; }
   #temp h1 {
     width: 35%;
     font-size: 6.0rem;
     text-align: center;
     margin: 0;
     margin-left: 15%;
-    padding-top: 30px; }
+    padding-top: 35px; }
   #temp #weather_image {
     height: 100%;
     float: right;
@@ -76,9 +76,8 @@ body {
   margin-top: 5%;
   padding-top: 6%; }
   #train_info h3 {
-    font-family: Dekar-Light;
     text-align: center;
-    font-size: 1.6rem; }
+    font-size: 1.9rem; }
   #train_info h1 {
     margin: 3%;
     text-align: center;
@@ -95,7 +94,7 @@ body {
     font-size: 7.0rem; }
   #christmas h3 {
     font-family: Dekar-Light;
-    font-size: 1.7rem; }
+    font-size: 1.9rem; }
 
 #graduation {
   width: 40%;
@@ -107,4 +106,4 @@ body {
     font-size: 7.0rem; }
   #graduation h3 {
     font-family: Dekar-Light;
-    font-size: 1.7rem; }
+    font-size: 1.9rem; }
