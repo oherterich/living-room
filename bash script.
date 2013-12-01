@@ -20,4 +20,4 @@ done
 # change the correspondent line 
 # 1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
 
-# to start the loop just call xinit ./thameofthisfile 
+# to start the loop just call xinit ./the/name/of/this/file 
