@@ -1,0 +1,23 @@
+#terrible made autoboot system. 
+
+#!/bin/sh
+xset -dpms
+xset s off
+matchbox-window-manager -use_cursor no & 
+while true; do
+midori  -e Fullscreen  -a http://isharethereforeiam.com/living-room/ & 
+sleep 1800
+killall midori 
+done
+
+# dependencies:
+  # matchbox // sudo apt-get install matchbox
+  # midori // 
+  # x11 - utils // sudo apt-get install x11-xserver-utils
+
+# autolog 
+# sudo nano /etc/inittab
+# change the correspondent line 
+# 1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
+
+# to start the loop just call xinit ./thameofthisfile 
