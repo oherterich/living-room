@@ -189,7 +189,7 @@ var display = function() {
 	date();
 	mapBackground();
 
-	 var christmas = dateDistance(2013, 11, 25, 0, 0, 0);
+	 var christmas = dateDistance(2014, 11, 25, 0, 0, 0);
 	 //document.getElementById('christmas').innerHTML = "There are " + christmas.days + " days, " + christmas.hours + " hours, " + christmas.minutes + " minutes, and " + christmas.seconds + " seconds until Christmas! That's " + christmas.total + " total seconds!";
 	 document.getElementById('christmas').innerHTML = "<h1>" + christmas.days + "</h1><h3>days until Christmas</h3>"
 	 var graduation = dateDistance(2014, 4, 23, 18, 0, 0);
